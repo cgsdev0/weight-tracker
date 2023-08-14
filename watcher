@@ -1,0 +1,8 @@
+#!/bin/bash
+
+(echo "scan on"; sleep infinity) \
+  | bluetoothctl \
+  | grep "Device 50:FB:19:14:64:B5 ServiceData Key: 0000181b-0000-1000-8000-00805f9b34fb" -A 2 --line-buffered \
+  | grep --line-buffered -v 'Device' \
+  | grep --line-buffered -v '^--$' \
+  | stdbuf -oL cut -d' ' -f4-16 | tee -a ~/scale_data_raw
