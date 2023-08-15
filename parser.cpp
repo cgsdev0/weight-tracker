@@ -40,6 +40,10 @@ int main() {
     else {
       weight = (float) (((b[12] & 0xFF) << 8) | (b[11] & 0xFF)) / 200.0f;
     }
+    if (weight < 20.0) {
+      // lol, probably not
+      continue;
+    }
     printf("%04d-%02d-%02d %02d:%02d:%02d %f\n", year, month, day, hours, min, sec, weight);
   }
   return 0;
