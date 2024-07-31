@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+  echo "re-starting watcher"
+  timeout 3600 ./watcher
+done
